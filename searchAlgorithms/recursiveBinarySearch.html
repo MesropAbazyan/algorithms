@@ -1,0 +1,40 @@
+<script>
+//                          RECURSIVE BINARY SEARCH: O (log2n).
+
+const array = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+let count = 0;
+let n = array.length;
+let maxCount = Math.log2(n);
+
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2);
+    let position = -1;
+    count++;
+    console.log('count:', count, 'start:', start, 'end:', end, 'middle:', middle);
+    
+    while (start <= end) {
+        if (item === array[middle]) {
+            return middle;
+        }
+        if (item < array[middle]) {
+            return recursiveBinarySearch(array, item, start, middle - 1);
+        } else {
+            return recursiveBinarySearch(array, item, middle + 1, end)
+        }
+    }
+    
+    return position;
+}
+
+console.log('RECURSIVE BINARY SEARCH');
+console.log('Given array', array);
+console.log('');
+for (let i = 0; i <= array.length * 2; i += 2) {
+    console.log('Item:', i, 'Index:', recursiveBinarySearch(array, i, 0, array.length), 
+                'Count:', count, 'MaxCount:', maxCount, '(log2n)');
+    console.log('');
+    count = 0;
+}
+
+
+</script>

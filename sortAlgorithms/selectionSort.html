@@ -1,0 +1,41 @@
+<script>
+//                          SELECTION SORT: O (n*n).
+// Ավելի հարմար է փոքր զանգվածների համար:
+// Հիմնականում օգտագործում ենք, որ ստուգենք զանգվածն արդեն դասավորված է, թե ոչ:
+// Օրինակ հաճախորդները հերթում ճիշտ են կանգնած, թե ոչ:
+
+const array = [11, 2, 7, 15, 0, 6, 9, 5, 14, 8, 4, 13, 1, 10, 3, 12];
+let count = 0;
+let n = array.length;
+let maxCount = n * n;
+
+function selectionSort(array) {
+    for (let i = 0; i < array.length; i++) {
+        let indexMin = i;
+
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[indexMin] > array[j]) {
+                indexMin = j;
+                j++;
+            }
+            count++;
+            console.log('count:', count, 'i:', i, 'j:', j, 'min:', array[indexMin], array);
+        }
+        console.log('');
+
+        let tmp = array[i];
+        array[i] = array[indexMin];
+        array[indexMin] = tmp;
+    }
+    
+    return array;
+}
+
+console.log('SELECTION SORT');
+console.log('Given array:', array);
+console.log('');
+console.log('Sorted array:', selectionSort(array));
+console.log('Count:', count, 'MaxCount:', maxCount, '(n*n)');     // n = 16; count = 95; max = 256;
+
+
+</script>

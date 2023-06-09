@@ -1,0 +1,37 @@
+<script>
+//                          BUBBLE SORT: O (n*n).
+// Ավելի հարմար է մասնակի դասավորված զանգված ունենալու դեպքում:
+
+const array = [11, 2, 7, 15, 0, 6, 9, 5, 14, 8, 4, 13, 1, 10, 3, 12];
+let count = 0;
+let n = array.length;
+let maxCount = n * n;
+
+function bubbleSort(array) {
+    let len = array.length;
+
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < len - 1; j++) {
+            if (array[j + 1] < array[j]) {
+                let tmp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = tmp;
+            }
+            count++;
+            console.log('count:', count, 'i:', i, 'j:', j, array);
+        }
+        len--;
+        console.log('');
+    }
+
+    return array;
+}
+
+console.log('BUBBLE SORT');
+console.log('Given array:', array);
+console.log('');
+console.log('Sorted array:', bubbleSort(array));
+console.log('Count:', count, 'MaxCount:', maxCount, '(n*n)');     // n = 16; count = 120; max = 256;
+
+
+</script>

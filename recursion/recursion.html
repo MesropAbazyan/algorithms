@@ -1,0 +1,23 @@
+<script>
+
+// 1. FACTORIAL
+function factorial(n) {
+    return (n === 1) ? n : (n * factorial(n - 1));
+}
+
+for (i = 1; i <= 10; i++) {
+    console.log(i + '! = ', factorial(i));
+}
+
+
+// 2. FIBONACCI
+function fibonacci(n) {
+    return (n === 1 || n === 2) ? 1 : (fibonacci(n - 2) + fibonacci(n - 1));
+}
+
+for (i = 1; i <= 10; i++) {
+    console.log(i + ' -', fibonacci(i));
+}
+
+
+</script>

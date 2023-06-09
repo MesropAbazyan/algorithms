@@ -1,0 +1,61 @@
+<script>
+//                          MERGE SORT: O (n*log2n).
+
+const array = [11, 2, 7, 15, 0, 6, 9, 5, 14, 8, 4, 13, 1, 10, 3, 12];
+let count = 0;
+let n = array.length;
+let maxCount = n * n;
+
+function sort(leftArray, rightArray) {
+    let result = [];
+    let l = 0;
+    let r = 0;
+
+    while (l < leftArray.length && r < rightArray.length) {
+        if (leftArray[l] < rightArray[r]) {
+            result.push(leftArray[l]);
+            l++;
+        } else {
+            result.push(rightArray[r]);
+            r++;
+        }
+        count++;
+        console.log('Left:', leftArray, '<===>', 'Right:', rightArray);
+    }
+    while (l < leftArray.length) {
+        result.push(leftArray[l]);
+        l++;
+    }
+    while (r < rightArray.length) {
+        result.push(rightArray[r]);
+        r++;
+    }
+
+    return result;
+}
+
+function divide(array) {
+    let middle = 0;
+    let leftArray = [];
+    let rightArray = [];
+
+    if (array.length < 2) {
+        return array;
+    } else {
+        middle = Math.floor(array.length / 2);
+        leftArray = divide(array.slice(0, middle));
+        rightArray = divide(array.slice(middle));
+        count++;
+
+        return sort(leftArray, rightArray);
+    }
+}
+
+console.log('INSERTION SORT');
+console.log('Given array:', array);
+console.log('');
+console.log('Sorted array:', divide(array));
+console.log('Count:', count, 'MaxCount:', maxCount, '(n*log2n)');     // n = 16; count = 62; max = 64;
+
+
+</script>

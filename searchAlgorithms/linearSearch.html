@@ -1,0 +1,34 @@
+<script>
+//                          LINEAR SEARCH: O (n).
+
+const array = [11, 2, 7, 15, 0, 6, 9, 5, 14, 8, 4, 13, 1, 10, 3, 12];
+let count = 0;
+let n = array.length;
+let maxCount = n;
+
+function linearSearch(array, item) {
+    let position = -1;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === item) {
+            position = i;
+            return position;
+        }
+        count++;
+        console.log('i:', i, 'count:', count);
+    }
+    
+    return position;
+}
+
+console.log('LINEAR SEARCH');
+console.log('Given array', array);
+console.log('');
+for (let i = 0; i <= array.length; i++) {
+    console.log('Item:', i, 'Index:', linearSearch(array, i), 'Count:', count, 'MaxCount:', maxCount, '(n)');
+    console.log('');
+    count = 0;
+}
+
+
+</script>

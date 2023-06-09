@@ -1,0 +1,42 @@
+<script>
+//                          QUICKSORT: O (n*log2n).
+
+const array = [11, 2, 7, 15, 0, 6, 9, 5, 14, 8, 4, 13, 1, 10, 3, 12];
+let count = 0;
+let n = array.length;
+let maxCount = n * Math.log2(n);
+
+function quickSort(array) {
+    if (array.length <= 1) {
+        return array;
+    }
+    
+    let pivotIndex = Math.floor((array.length - 1) / 2);
+    let pivot = array[pivotIndex];
+    let less = [];
+    let greater = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (i === pivotIndex) {
+            continue;
+        } else if (array[i] < pivot) {
+            less.push(array[i]);
+        } else {
+            greater.push(array[i]);
+        }
+        count++;
+        console.log('count:', count, array, 'pivot:', pivot, 'less:', less, 'greater:', greater);
+    }
+    console.log('');
+    
+    return [...quickSort(less), pivot, ...quickSort(greater)];
+}
+
+console.log('QUICKSORT');
+console.log('Given array:', array);
+console.log('');
+console.log('Sorted array:', quickSort(array));
+console.log('Count:', count, 'MaxCount:', maxCount, '(n*log2n)');     // n = 16; count = 48; max = 64;
+
+
+</script>
